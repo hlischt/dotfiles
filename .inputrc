@@ -1,0 +1,18 @@
+$include /etc/inputrc
+
+# Variables
+set colored-completion-prefix On
+set colored-stats On
+# set completion-ignore-case On
+# set completion-map-case
+# set editing-mode vi
+# set enable-bracketed-paste On
+set expand-tilde On
+set mark-symlinked-directories On
+# set show-mode-in-prompt On
+# set skip-completed-text
+set visible-stats On
+
+# Macros
+
+"\C-x\C-r": re-read-init-file

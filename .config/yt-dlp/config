@@ -1,0 +1,16 @@
+--add-metadata
+#-n
+-i
+-4
+#-c
+-o "./%(title)s %(id)s.%(ext)s"
+#--write-info-json
+#--write-description
+#--write-thumbnail
+#--write-annotations
+#--all-subs
+-f "bestvideo[ext=mp4]+251/bestvideo[ext=mp4]+43/bestvideo[ext=mp4][height<=360]+bestaudio/best"
+#--user-agent "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+
+# --external-downloader aria2c
+# --external-downloader-args "-x 16 -s 16 -k 1M"

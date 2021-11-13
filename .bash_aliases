@@ -1,0 +1,7 @@
+alias cls='printf "\033c"'
+alias ytdl='youtube-dl'
+alias agu='sudo apt-get update ; sudo apt-get upgrade'	
+alias agi='sudo apt-get install'
+alias lls='ls -GAhlg'
+alias ffmpeg='ffmpeg -hide_banner'
+alias locate='locate -ir'
