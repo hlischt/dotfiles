@@ -130,7 +130,8 @@ export PS2='\[\033[01;32m\]>> \[\033[00m\]'
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export PLAN9=/usr/local/plan9
 export PATH=$HOME/bin:$PATH:$PLAN9/bin
-export EDITOR=/usr/bin/vim
+export EDITOR="emacsclient -c -a emacs"
+export VISUAL="emacsclient -c -a emacs"
 
 voltest() {
 	for i in "$@"
