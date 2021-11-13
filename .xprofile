@@ -1,0 +1,5 @@
+# TODO: Add compton, or whatever it's called nowadays
+# Maybe it's better to add it to i3config?
+xbindkeys -f .xbindkeysrc
+setxkbmap -layout 'us(intl)' -option ctrl:nocaps
+xrdb -merge ~/.Xresources
