@@ -125,7 +125,7 @@ fi
     trap 'set_title' DEBUG
     fi
 
-export PS1='\[\e]0;\w\a\]${debian_chroot:+($debian_chroot)}\[\033[00m\]┌──╼ \[\033[01;31m\]\A \[\033[01;34m\][\w]\n\[\033[00m\]└╼ '
+export PS1='\[\e]0;\w\a\]\[\033[00m\]┌──╼ \[\033[01;31m\]\A \[\033[01;34m\][\w]\n\[\033[00m\]└╼ '
 export PS2='\[\033[01;32m\]>> \[\033[00m\]'
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export PLAN9=/usr/local/plan9
