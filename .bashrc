@@ -143,10 +143,3 @@ voltest() {
 		ffmpeg -i "${i}" -vn -sn -dn -af volumedetect -f null /dev/null 2>&1 | egrep -i 'max_volume'
 	done
 }
-
-ytinfo() {
-	# youtube-dl -j "$@" | jq -js '.[0].uploader, "\t", .[0].fulltitle, "\n"'
-	youtube-dl -j "$@" | jq -js \
-	'.[] | "\(.playlist_index) \("\t") \(.id) \("\t") \(.uploader) \("\t") \(.fulltitle) \("\n")"' | \
-	uniq | awk 'BEGIN{FS="\t"}; {print $0}; /^null/{print $2 "\t" $3 "\t" $4 "\n"}'
-}
