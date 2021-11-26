@@ -124,12 +124,14 @@ set_title() {
 	printf '\033]0;%s - %s\a' "$BASH_COMMAND" "$(basename $SHELL)"
 }
 
-if { echo "$TERM" | grep -q 'xterm\|rxvt' ; } ; then
+if { echo "$TERM" | grep -q 'xterm\|rxvt\|foot' ; } ; then
 	# set -o functrace
 	trap 'set_title' DEBUG
+	export PS1='\[\e]0;\w - '"$(basename $SHELL)"'\a\]\[\033[00m\]┌──╼ \[\033[01;31m\]\A \[\033[01;34m\][\w]\n\[\033[00m\]└╼ '
+else
+	export PS1='\[\033[00m\]┌──╼ \[\033[01;31m\]\A \[\033[01;34m\][\w]\n\[\033[00m\]└╼ '
 fi
 
-export PS1='\[\e]0;\w - '"$(basename $SHELL)"'\a\]\[\033[00m\]┌──╼ \[\033[01;31m\]\A \[\033[01;34m\][\w]\n\[\033[00m\]└╼ '
 export PS2='\[\033[01;32m\]>> \[\033[00m\]'
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export PLAN9=/usr/local/plan9
