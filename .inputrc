@@ -16,3 +16,5 @@ set visible-stats On
 # Macros
 
 "\C-x\C-r": re-read-init-file
+"\C-h": backward-kill-word
+"\e[3^": kill-word
