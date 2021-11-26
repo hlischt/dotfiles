@@ -15,10 +15,10 @@
  '(variable-pitch ((t (:foundry "outline" :family "Verdana")))))
 
 (if (string-equal system-type "windows-nt")
-    (cd (concat (getenv "HOMEDRIVE") (getenv "HOMEPATH")))
+    (cd (concat (getenv "HOMEDRIVE") (getenv "HOMEPATH"))
     (setq explicit-shell-file-name (concat (getenv "HOMEDRIVE")
 					   (getenv "HOMEPATH")
-					   "/bin/sh.exe")))
+					   "/bin/sh.exe"))))
 (if (string-equal system-type "gnu/linux")
     (server-start))
 
