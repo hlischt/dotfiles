@@ -1,4 +1,10 @@
-alias xi='sudo xbps-install -Syu'
+# alias xi='echo "sudo makewhatis /usr/share/man" && sudo xbps-install -Syu'
 alias xu='sudo xbps-install -Su' 
 alias xs='xbps-query --regex -Rs'
 alias xsh='xbps-query -RS'
+
+xi() {
+	sudo xbps-install -Syu "$@"
+	echo "sudo makewhatis /usr/share/man/"
+	sudo makewhatis /usr/share/man/
+}
