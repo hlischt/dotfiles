@@ -40,6 +40,7 @@
 (global-auto-revert-mode 1)
 (global-font-lock-mode 1)
 (column-number-mode 1)
+(show-paren-mode 1)
 (if (version<= "26.0.50" emacs-version )
     (global-display-line-numbers-mode 1)
   (linum-mode 1))
