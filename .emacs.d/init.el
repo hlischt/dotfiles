@@ -117,6 +117,10 @@ This command does not push text to `kill-ring'."
 (global-unset-key (kbd "C-f"))
 (global-unset-key (kbd "C-b"))
 (global-unset-key (kbd "<menu>"))
+(global-unset-key (kbd "<f1>"))
+(global-unset-key (kbd "<f2>"))
+(global-unset-key (kbd "<f3>"))
+(global-unset-key (kbd "<f4>"))
 
 
 (global-set-key (kbd "TAB") 'insert-tab-char)
@@ -127,6 +131,13 @@ This command does not push text to `kill-ring'."
 (global-set-key (kbd "C-x %") 'split-window-below)
 (global-set-key (kbd "C-x \"") 'split-window-right)
 (global-set-key (kbd "<menu>") 'counsel-M-x)
+(global-set-key (kbd "<f1>") 'find-file)
+(global-set-key (kbd "<f2>") 'save-buffer)
+(global-set-key (kbd "<f3>") 'switch-to-buffer)
+(global-set-key (kbd "<f4>") 'kill-buffer)
+(global-set-key (kbd "<f5>") 'kmacro-start-macro-or-insert-counter)
+(global-set-key (kbd "<f6>") 'kmacro-end-or-call-macro)
+
 
 ;; Info
 (progn
