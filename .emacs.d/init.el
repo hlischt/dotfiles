@@ -56,10 +56,6 @@
 (defvaralias 'css-basic-offset 'tab-width)
 
 
-(add-hook 'python-mode-hook
-          '(lambda ()
-             (seq python-check-command nil)
-             ))
 (fringe-mode 0)
 (toggle-word-wrap 1)
 
@@ -164,6 +160,13 @@ This command does not push text to `kill-ring'."
 (package-install-selected-packages)
 
 (require 'fountain-mode)
+
+;; Python mode hook
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (seq python-check-command nil)
+	     (local-set-key (kbd "<C-backspace>")
+			    'my-backward-delete-word)))
 
 ;; olivetti
 (require 'olivetti)
