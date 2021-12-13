@@ -3,7 +3,13 @@
 
 # Don't break my VM using Wayland
 export WLR_NO_HARDWARE_CURSORS=1
+
+# Use my actual sound card for apulse
+export APULSE_PLAYBACK_DEVICE="plughw:1,0"
+
 xbindkeys -f ~/.config/xbindkeys/xbindkeysrc
 setxkbmap -layout 'us(intl)' -option ctrl:nocaps
+dunst &
 xrdb -merge ~/.Xresources
 emacs --daemon
+picom -b --config ~/.config/picom.conf
