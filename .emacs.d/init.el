@@ -28,7 +28,7 @@
 (set-language-environment "UTF-8")
 (load-theme 'tango-dark)
 (when (member "Terminus" (font-family-list))
-  (set-frame-font "Terminus-12" t t))
+  (set-frame-font "Terminus-11" t t))
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
 (setq-default frame-title-format '("%b - " invocation-name))
@@ -61,7 +61,7 @@
 (toggle-word-wrap 1)
 
 
-(setq default-frame-alist '((font . "Terminus-12")
+(setq default-frame-alist '((font . "Terminus-11")
 			    (left-fringe . 0)
 			    (right-fringe . 0)))
 
