@@ -1,0 +1,39 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 5
+}
+
+order += "disk /"
+order += "memory"
+order += "tztime date"
+order += "tztime hours"
+
+
+tztime hours {
+        format = "%H:%M  "
+        hide_if_equals_localtime = false
+}
+
+tztime date {
+        format = "%Y-%m-%d"
+        hide_if_equals_localtime = false
+}
+
+memory {
+        format = "RAM: %used / %total"
+        threshold_degraded = "10%"
+        format_degraded = "MEMORY: %free"
+}
+
+disk "/" {
+	prefix_type = "decimal"
+        format = "%avail avail. (%percentage_avail)"
+}
+
+volume master {
+	format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "default"
+        mixer = "Master"
+}
