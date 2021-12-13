@@ -46,6 +46,7 @@
   (linum-mode 1))
 (setq display-line-numbers-type 'relative)
 (delete-selection-mode 1)
+(setq-default buffer-file-coding-system 'utf-8-unix)
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 8)
 (setq-default indent-tabs-mode 'only)

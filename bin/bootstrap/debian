@@ -1,0 +1,54 @@
+#!/bin/sh
+
+epr() {
+	>&2 printf "$@"
+}
+
+if [ "$USER" != root ]
+then
+	epr 'Error: This script needs root privileges to run.\n'
+	exit 1
+fi
+
+repo='https://github.com/hlischt/dotfiles'
+packages="netselect-apt curl tmux vim vim-doc console-data unicode-data bash-doc htop inxi xorg i3 alsa-utils git imagemagick xdg-utils feh sxiv manpages-posix build-essential emacs xbindkeys rxvt-unicode fonts-terminus fonts-ibm-plex fonts-inconsolata ttf-mscorefonts-installer bc ed xclip xsel"
+
+change_sources() {
+	epr "Changing release to 'testing'... "
+	sources_temp="$(mktemp /tmp/sources.XXXXXXX)"
+	awk '/^[^#]/ && $0 !~ /(updates|security)/ {
+		print $1 " " $2 " testing main contrib non-free"
+	}' /etc/apt/sources.list > "$sources_temp"
+	mv /etc/apt/sources.list /etc/apt/sources.list.freshinstall
+	mv "$sources_temp" /etc/apt/sources.list
+	chmod +r /etc/apt/sources.list
+	epr 'Done\n'
+}
+
+upgrade_release() {
+	apt-get update
+	apt-get dist-upgrade
+	apt autoremove
+}
+
+fix_ipv4() {
+	echo 'precedence ::ffff:0:0/96 100' >> /etc/gai.conf
+}
+
+install_packages() {
+	apt-get install aptitude -y
+	aptitude install $packages
+}
+
+home_repo() {
+	git clone "$repo"
+	mv dotfiles.git .git
+	git config --unset 
+	rm .bash*
+	git checkout
+}
+
+change_sources
+fix_ipv4
+update_release
+install_packages
