@@ -5,7 +5,9 @@
 export WLR_NO_HARDWARE_CURSORS=1
 
 # Use my actual sound card for apulse
-export APULSE_PLAYBACK_DEVICE="plughw:1,0"
+# It turns out I didn't have ALSA properly set up
+# and Firefox has the --enable-alsa flag on Debian anyways
+# export APULSE_PLAYBACK_DEVICE="plughw:1,0"
 
 xbindkeys -f ~/.config/xbindkeys/xbindkeysrc
 setxkbmap -layout 'us(intl)' -option ctrl:nocaps
