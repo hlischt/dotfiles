@@ -1,5 +1,4 @@
-# TODO: Add compton, or however it's called nowadays
-# Maybe it's better to add it to i3config?
+#!/bin/sh
 
 # Don't break my VM using Wayland
 export WLR_NO_HARDWARE_CURSORS=1
