@@ -1,4 +1,4 @@
 alias au='sudo apt-get update ; sudo apt-get upgrade'
 alias ai='sudo aptitude install'
-alias as='aptitude search'
+alias as='apt-cache  search'
 alias ah='aptitude show'
