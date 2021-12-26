@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# resolution="$(xdpyinfo | grep dimensions | awk '{print $2}')"
+
+if [ ! -d "$1" ]
+then
+	echo "$1 is not a directory"
+	exit 1
+fi
+
+# set_pape() {
+# 	for i in "$@"
+# 	do
+# 		if [ "$(identify -format "%[fx:w]x%[fx:h]\n" "$i")" = "$wallpaper" ]
+# 		then
+# 			feh --no-fehbg --bg-fill -- "$i"
+# 			break
+# 		fi
+# 	done
+# }
+# 
+# find "$@" -type f -maxdepth 1 -iname '*.jpg' -or -iname '*.png' | shuf | xargs set_pape
+# for i in "$1"*.jpg "$1"*.png
+# do
+# 	if [ "$(identify -format "%[fx:w]x%[fx:h]\n" "$i")" = "$resolution" ]
+# 	then
+# 		echo "$i"
+# 	fi
+# done | shuf | head -n 1 | feh --no-fehbg --bg-fill -f -
+
+find "$1" -type f -iname '*.jpg' -o -iname '*.png' | shuf | head -n 1 | feh --no-fehbg --bg-fill -f -
