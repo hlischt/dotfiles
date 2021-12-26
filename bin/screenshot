@@ -1,0 +1,43 @@
+#!/bin/sh
+
+if [ "$#" -ne 2 ]
+then
+	>&2 printf 'Usage: %s [screenshots directory] [full|region]\n' "$0"
+	exit 1
+fi
+
+screendir="${1%/}"
+shift 1
+echo "$@"
+month="$(date +'%Y/%m')"
+file_name="${screendir}/${month}/$(date +'%Y-%m-%d_%H%M%S.png')"
+
+
+screenshot_program() {
+	case "$1" in
+		full) import -window root png:- ;;
+		*) import png:- ;;
+	esac
+}
+
+ss() {
+	screenshot_program "$@" | tee -a "$file_name" \
+		| xclip -i -selection clipboard -t 'image/png' && \
+		notify-send -i "$(realpath "$file_name")" \
+			    "Screenshot saved" "$(basename "$file_name")"
+}
+
+if ! (command -v import || command -v xclip) > /dev/null
+then
+	>&2 echo "Error: This script requires imagemagik and xclip.\n"
+	exit 1
+fi
+
+if [ -d "${screendir}/${month}" ]
+then
+	ss "$@"
+else
+	mkdir -p "${screendir}/${month}" && ss  "$@"
+fi
+
+echo "$file_name"

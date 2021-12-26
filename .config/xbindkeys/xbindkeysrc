@@ -65,10 +65,10 @@
 #"rxvt"
 #  Control + b:2 + Release
 
-"import -window root png:- | xclip -selection clipboard -t image/png"
+"screenshot ~/Own/Screenshots full"
   Print
 
-"import -window $(xdotool getactivewindow) png:- | xclip -selection clipboard -t image/png"
+"screenshot ~/Own/Screenshots region"
   Control + Print
 
 "dmenu_run -fn Terminus:size=14 -b -nb '#171D24' -nf '#f0f0f0' -sf '#f0f0f0' -sb '#1e2d60'"
