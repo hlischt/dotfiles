@@ -1,4 +1,4 @@
-alias au='sudo apt-get update ; sudo apt-get upgrade'
+alias au='sudo apt-get update ; sudo apt-get upgrade --with-new-pkgs'
 alias ai='sudo aptitude install'
-alias as='apt-cache  search'
+alias as='apt-cache search'
 alias ah='aptitude show'
