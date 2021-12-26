@@ -20,3 +20,9 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# Automatic startx when logged to TTY 1
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]
+then
+	exec startx
+fi
