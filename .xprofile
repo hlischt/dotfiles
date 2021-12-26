@@ -9,6 +9,18 @@ export WLR_NO_HARDWARE_CURSORS=1
 # and Firefox has the --enable-alsa flag on Debian anyways
 # export APULSE_PLAYBACK_DEVICE="plughw:1,0"
 
+# qt5ct QT style
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# Let flatpak programs work
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]
+then
+	eval "$(dbus-launch --sh-syntax)"
+fi
+
+# Something something fix shitty xdg portal
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+
 xbindkeys -f ~/.config/xbindkeys/xbindkeysrc
 setxkbmap -layout 'us(intl)' -option ctrl:nocaps
 dunst &
