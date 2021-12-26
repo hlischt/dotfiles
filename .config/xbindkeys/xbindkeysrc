@@ -77,11 +77,8 @@
 "urxvt"
   Mod4 + Return
 
-"everything.sh"
-  Mod4 + e
-
-"mocp -G"
-  XF86AudioPlay
+# "everything.sh"
+#   Mod4 + e
 
 ##################################
 # End of xbindkeys configuration #
