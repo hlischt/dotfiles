@@ -21,8 +21,6 @@
 					   "/bin/sh.exe"))
     )
   )
-(if (string-equal system-type "gnu/linux")
-    (server-start))
 
 ;; Interfaz
 (set-language-environment "UTF-8")

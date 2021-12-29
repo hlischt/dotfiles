@@ -1,3 +1,4 @@
+
 ! Tango color palette
 URxvt*background:         #2e3436
 URxvt*foreground:         #eeeeec
@@ -50,7 +51,7 @@ URxvt.letterSpace: -1
 
 ! Konatu is a bitmap font that looks good with Terminus.
 ! However, it lacks a lot of common kanji,
-! but I can't get it working with WenQuanYi
+! but I cannot get it working with WenQuanYi
 URxvt.font: xft:terminus:size=13,xft:Konatu Tohaba:size=13
 
 URxvt.iconFile: /usr/share/icons/Papirus-Dark/64x64/apps/utilities-x-terminal.svg
