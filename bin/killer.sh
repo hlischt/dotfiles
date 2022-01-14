@@ -15,7 +15,7 @@ send_message() {
 	then
 		msg /W /time:180 "$USER" "$@"
 	else
-		notify-send -u critical "$(basename "$0")" "$@"
+		notify-send -t 240000 "$(basename "$0")" "$@"
 	fi
 }
 
@@ -64,4 +64,4 @@ do
 done
 
 # taskkill /im "$taskname"
-kill -s SIGTERM "$taskname"
+kill -s TERM "$taskname"
