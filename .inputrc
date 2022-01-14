@@ -3,7 +3,7 @@ $include /etc/inputrc
 # Variables
 set colored-completion-prefix On
 set colored-stats On
-# set completion-ignore-case On
+set completion-ignore-case On
 # set completion-map-case
 # set editing-mode vi
 # set enable-bracketed-paste On
