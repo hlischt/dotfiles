@@ -53,6 +53,7 @@
 (setq-default tab-width 8)
 (setq-default indent-tabs-mode 'only)
 (setq backward-delete-char-untabify-method 'nil)
+(setq mouse-autoselect-window t)
 (add-hook 'sh-mode-hook (lambda () (setq sh-basic-offset 8 indent-tabs-mode t)))
 (defvaralias 'c-basic-offset 'tab-width)
 (defvaralias 'sgml-basic-offset 'tab-width)
@@ -163,6 +164,13 @@ This command does not push text to `kill-ring'."
 (package-install-selected-packages)
 
 (require 'fountain-mode)
+
+;; No line wrap on eww
+(eval-after-load 'shr
+  '(progn (setq shr-width -1)
+          (defun shr-fill-text (text) text)
+          (defun shr-fill-lines (start end) nil)
+          (defun shr-fill-line () nil)))
 
 ;; Python mode hook
 (add-hook 'python-mode-hook
