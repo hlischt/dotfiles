@@ -27,7 +27,7 @@ memory {
 }
 
 disk "/" {
-	prefix_type = "decimal"
+	prefix_type = "SI"
         format = "%avail avail. (%percentage_avail)"
 }
 
