@@ -52,6 +52,7 @@
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 8)
 (setq-default indent-tabs-mode 'only)
+(setq echo-keystrokes 0.1)
 (setq backward-delete-char-untabify-method 'nil)
 (setq mouse-autoselect-window t)
 (add-hook 'sh-mode-hook (lambda () (setq sh-basic-offset 8 indent-tabs-mode t)))
