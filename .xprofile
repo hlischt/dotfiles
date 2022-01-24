@@ -20,6 +20,12 @@ fi
 # Something something fix shitty xdg portal
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
+# Fcitx as IME
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export SDL_IM_MODULE=fcitx
+export XMODIFIERS='@im=fcitx'
+
 xbindkeys -f ~/.config/xbindkeys/xbindkeysrc
 setxkbmap -layout 'us(intl)' -option ctrl:nocaps
 dunst &
@@ -27,5 +33,6 @@ wallpaper ~/Media/Pictures/wallpapers/1080-plus &
 xfce4-clipman &
 transmission-gtk -m &
 xrdb -merge ~/.Xresources
+fcitx -d &
 emacs --daemon
 picom -b --config ~/.config/picom.conf

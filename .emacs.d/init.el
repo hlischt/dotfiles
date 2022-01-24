@@ -59,6 +59,7 @@
 (defvaralias 'c-basic-offset 'tab-width)
 (defvaralias 'sgml-basic-offset 'tab-width)
 (defvaralias 'css-basic-offset 'tab-width)
+(require 'iso-transl)
 
 
 (fringe-mode 0)
