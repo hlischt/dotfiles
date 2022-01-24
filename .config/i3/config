@@ -196,12 +196,18 @@ bindsym --release button2 kill
 for_window [all] title_window_icon on
 title_align center
 
-# Run mpv in floating mode
+# Run mpv and image viewers in floating mode
 for_window [class="mpv"] floating enable
+for_window [class="(?i)feh|sxiv|qimgv"] floating enable
+
+for_window [instance="thunar_clip_launcher"] floating enable ; [instance="thunar_clip_launcher"] resize set 1280 800 ; [instance="thunar_clip_launcher"] move position mouse 
+bindsym $mod+c exec --no-startup-id thunar --name=thunar_clip_launcher
 
 # Scratchpad terminal
-for_window [instance="flotante"] floating enable
-for_window [instance="flotante"] move scratchpad
-for_window [instance="flotante"] border pixel 5 
+for_window [instance="flotante|fsearch_float"] floating enable
+for_window [instance="flotante|fsearch_float"] move scratchpad
+for_window [instance="flotante|fsearch_float"] border pixel 5
 exec --no-startup-id urxvt -name flotante
-bindsym $mod+z [instance="flotante"] scratchpad show ; [instance="flotante"] move position center 
+exec --no-startup-id fsearch --name=fsearch_float
+bindsym $mod+z [instance="flotante"] scratchpad show ; [instance="flotante"] move position center
+bindsym $mod+x [instance="fsearch_float"] scratchpad show ; [instance="fsearch_float"] move position center
