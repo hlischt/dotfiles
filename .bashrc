@@ -138,6 +138,7 @@ export PLAN9=/usr/local/plan9
 # export PATH=$HOME/bin:$PATH:$PLAN9/bin # Already in ~/.profile
 export EDITOR="emacsclient -c -a emacs"
 export VISUAL="emacsclient -c -a emacs"
+export MAKEOPTS="-j$(nproc)"
 
 voltest() {
 	for i in "$@"
