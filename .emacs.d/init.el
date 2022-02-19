@@ -43,9 +43,6 @@
 (global-font-lock-mode 1)
 (column-number-mode 1)
 (show-paren-mode 1)
-(if (version<= "26.0.50" emacs-version )
-    (global-display-line-numbers-mode 1)
-  (linum-mode 1))
 (setq display-line-numbers-type 'relative)
 (delete-selection-mode 1)
 (setq-default buffer-file-coding-system 'utf-8-unix)
@@ -180,6 +177,9 @@ This command does not push text to `kill-ring'."
              ;(seq python-check-command nil)
 	     (local-set-key (kbd "<C-backspace>")
 			    'my-backward-delete-word)))
+
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'text-mode-hook 'display-line-numbers-mode)
 
 ;; olivetti
 (require 'olivetti)
