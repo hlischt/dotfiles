@@ -213,3 +213,4 @@ This command does not push text to `kill-ring'."
 (setq org-startup-truncated nil)
 (setq org-startup-indented t)
 (setq org-adapt-indentation nil)
+(add-hook 'org-mode-hook #'toggle-word-wrap)
