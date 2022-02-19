@@ -198,6 +198,7 @@ title_align center
 
 # Run mpv and image viewers in floating mode
 for_window [class="mpv"] floating enable
+for_window [class="KeePassXC"] floating enable
 for_window [class="(?i)feh|sxiv|qimgv"] floating enable
 
 for_window [instance="thunar_clip_launcher"] floating enable ; [instance="thunar_clip_launcher"] resize set 1280 800 ; [instance="thunar_clip_launcher"] move position mouse 
