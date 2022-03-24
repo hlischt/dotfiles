@@ -39,7 +39,7 @@
 (tool-bar-mode   -1)
 (tooltip-mode    -1)
 (menu-bar-mode   -1)
-(global-auto-revert-mode 1)
+(global-auto-revert-mode 1) ; Update buffers if their associated file changes 
 (global-font-lock-mode 1)
 (column-number-mode 1)
 (show-paren-mode 1)
