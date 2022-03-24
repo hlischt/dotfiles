@@ -80,6 +80,8 @@
 "emacsclient -c"
   Mod4 + backslash
 
+"dmenu_notes"
+  Mod4 + q
 # "everything.sh"
 #   Mod4 + e
 
