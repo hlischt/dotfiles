@@ -1,0 +1,24 @@
+#!/bin/sh
+
+notes_file="${HOME}/Own/thoughts"
+
+note_taker() {
+	printf '' | dmenu -p 'Thought to record:' \
+			  -fn 'Terminus:size=14' -b -nb '#171D24' \
+			  -nf '#f0f0f0' -sf '#f0f0f0' -sb '#1e2d60'
+}
+
+if [ -f "$notes_file" ]
+then
+	thought="$(note_taker)"
+	[ -n "${thought}" ] && \
+		printf '%s\t%s\t%s\n' "$(date +'%Y-%m-%d')" \
+		       "$(date +'%H:%M:%S')" \
+		       "${thought}" >> "$notes_file" && \
+		notify-send -u low -t 2000 \
+			    'Thought recorded' \
+			    "“${thought}”"
+else
+	>&2 printf '%s: No such file.\n' "${notes_file}"
+	exit 1
+fi
