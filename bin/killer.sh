@@ -55,7 +55,7 @@ for i in $(seq 1 1 "$min_number")
 do
 	sleep 1m
 	# if ( tasklist /fi "imagename eq $taskname" | grep -q "$tl_fail_msg" )
-	pgrep "$taskname"
+	pgrep -i "$taskname"
 	if [ "$?" -ne 0 ]
 	then
 		echo "$taskname is not running."
