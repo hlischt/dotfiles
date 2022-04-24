@@ -1,4 +1,4 @@
-alias au='sudo apt-get update ; sudo aptitude upgrade ; sudo apt autoremove ; flatpak update ; sudo updatedb'
+alias au='sudo apt-get update ; sudo aptitude upgrade -y ; sudo apt autoremove -y ; flatpak update -y ; sudo updatedb'
 alias ai='sudo aptitude install'
 alias as='apt-cache search'
 alias ah='aptitude show'
