@@ -133,6 +133,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 assign [class="Firefox"] number "1:  Firefox"
 assign [class="thunderbird"] number "4:  Thunderbird"
 assign [class="discord"] number "5:  Chat"
+assign [class="Element"] number "5:  Chat"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
