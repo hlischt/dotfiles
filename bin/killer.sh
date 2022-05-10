@@ -58,7 +58,7 @@ do
 	pgrep -i "$taskname"
 	if [ "$?" -ne 0 ]
 	then
-		echo "$taskname is not running."
+		[ "${i}" -gt 1 ] && echo "$taskname is not running."
 		exit 0
 	fi
 done
