@@ -1,3 +1,4 @@
+#!/bin/sh
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -9,10 +10,18 @@
 #umask 022
 
 # set the XDG Base Directory Specification variables
-export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_CACHE_HOME="${HOME}/.cache"
-export XDG_DATA_HOME="${HOME}/.local/share"
-export XDG_STATE_HOME="${HOME}/.local/state"
+XDG_CONFIG_HOME="${HOME}/.config"
+XDG_CACHE_HOME="${HOME}/.cache"
+XDG_DATA_HOME="${HOME}/.local/share"
+XDG_STATE_HOME="${HOME}/.local/state"
+export XDG_CONFIG_HOME
+export XDG_CACHE_HOME
+export XDG_DATA_HOME
+export XDG_STATE_HOME
+
+# Set Go's directory in ~/.local/share
+GOPATH="${XDG_DATA_HOME}/go"
+export GOPATH
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
