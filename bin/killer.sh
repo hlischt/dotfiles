@@ -40,7 +40,6 @@ fi
 tasktime="$1"
 taskname="$2"
 min_number=5
-tl_fail_msg='No tasks are running which match the specified criteria.'
 
 if [ "$usesleep" = 1 ]
 then
@@ -49,14 +48,18 @@ else
 	sleep "$(($(date -d "$tasktime" '+%s') - $(date '+%s')))"s
 fi
 
-send_message "$taskname will be stopped in $min_number minutes."
+if pgrep -i "$taskname" > /dev/null
+then
+	send_message "$taskname will be stopped in $min_number minutes."
+else
+	exit 0
+fi
 
 for i in $(seq 1 1 "$min_number")
 do
 	sleep 1m
 	# if ( tasklist /fi "imagename eq $taskname" | grep -q "$tl_fail_msg" )
-	pgrep -i "$taskname"
-	if [ "$?" -ne 0 ]
+	if ! pgrep -i "$taskname"
 	then
 		[ "${i}" -gt 1 ] && echo "$taskname is not running."
 		exit 0
