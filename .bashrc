@@ -1,3 +1,4 @@
+#!/bin/bash
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -17,8 +18,9 @@ HISTIGNORE='cd *:lls:exit:sudo sysctl *:au'
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=5000
+HISTFILESIZE=10000
+HISTTIMEFORMAT='%FT%T	'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
