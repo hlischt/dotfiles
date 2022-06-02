@@ -24,7 +24,7 @@ ss() {
 	screenshot_program "$@" | tee -a "$file_name" \
 		| xclip -i -selection clipboard -t 'image/png' && \
 		notify-send -i "$(realpath "$file_name")" \
-			    "Screenshot saved" "$(basename "$file_name")"
+			    "Screenshot saved" "$file_name"
 }
 
 if ! (command -v import || command -v xclip) > /dev/null
