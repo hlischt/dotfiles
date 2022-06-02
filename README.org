@@ -1,5 +1,5 @@
 * My dotfiles
-My personal configuration files and stuff.
+My personal configuration files and stuff. I'm trying to use the XDG Base Directory Specification as much as possible in order to avoid cluttering my home directory with dotfiles.
 
 ** Adding a new file
 An all encopasing =.gitignore= is used for this repo, thus you need to use =git add -f [file]= to add a new file to the repo.
