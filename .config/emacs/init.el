@@ -5,13 +5,13 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes nil)
  '(package-selected-packages
-   '(nov go-mode markdown-mode org-static-blog draft-mode spray haskell-mode json-mode wanderlust elfeed imenu-list smex counsel ivy olivetti fountain-mode god-mode org-link-minor-mode use-package)))
+   '(elpher nov go-mode markdown-mode org-static-blog draft-mode spray haskell-mode json-mode wanderlust elfeed imenu-list smex counsel ivy olivetti fountain-mode god-mode org-link-minor-mode use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(variable-pitch ((t (:weight semi-light :family "Fira Sans")))))
+ '(variable-pitch ((t (:weight light :family "Fira Sans")))))
 
 (if (string-equal system-type "windows-nt")
     (progn
