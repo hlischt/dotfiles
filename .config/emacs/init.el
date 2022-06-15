@@ -178,6 +178,13 @@ This command does not push text to `kill-ring'."
 	     (local-set-key (kbd "<C-backspace>")
 			    'my-backward-delete-word)))
 
+;; Go mode hook
+(defun my-go-mode-hook ()
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save))
+
+(add-hook 'go-mode-hook 'my-go-mode-hook)
+
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'text-mode-hook 'display-line-numbers-mode)
 

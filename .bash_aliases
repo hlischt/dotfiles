@@ -8,3 +8,10 @@ alias vi='emacsclient -c -a emacs'
 alias feh='feh -. -g 1600x900 -S mtime --start-at'
 alias cal='ncal -b'
 alias rsync='rsync -avxlhhP --no-o --no-g --progress'
+
+godocs() {
+	for i in "$@"
+	do
+		go doc "$i"
+	done | less
+}
