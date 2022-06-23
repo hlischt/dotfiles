@@ -21,7 +21,9 @@ export XDG_STATE_HOME
 
 # Set Go's directory in ~/.local/share
 GOPATH="${XDG_DATA_HOME}/go"
+GOBIN="${GOPATH}/bin"
 export GOPATH
+export GOBIN
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -32,8 +34,16 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ]
+then
+	PATH="${HOME}/.local/bin:${PATH}"
+fi
+if [ -d "${GOBIN}" ]
+then
+	PATH="${GOBIN}:${PATH}"
+fi
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+	PATH="$HOME/bin:${PATH}"
 fi
 
 # Automatic startx when logged to TTY 1
