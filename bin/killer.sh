@@ -67,4 +67,5 @@ do
 done
 
 # taskkill /im "$taskname"
-kill -s TERM "$taskname"
+kill_PID="$(pgrep -i $taskname)"
+kill -s TERM "$kill_PID"
