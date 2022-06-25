@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes nil)
  '(package-selected-packages
-   '(elpher nov go-mode markdown-mode org-static-blog draft-mode spray haskell-mode json-mode wanderlust elfeed imenu-list smex counsel ivy olivetti fountain-mode god-mode org-link-minor-mode use-package)))
+   '(lsp-ui lsp-mode company flycheck which-key dumb-jump elpher nov go-mode markdown-mode org-static-blog draft-mode spray haskell-mode json-mode wanderlust elfeed imenu-list smex counsel ivy olivetti fountain-mode god-mode org-link-minor-mode use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -31,6 +31,8 @@
   (set-fontset-font "fontset-default" 'kana "Konatu Tohaba"))
 (when (member "WenQuanYi Bitmap Song" (font-family-list))
   (set-fontset-font "fontset-default" 'han "WenQuanYi Bitmap Song"))
+(when (member "Blobmoji" (font-family-list))
+  (set-fontset-font "fontset-default" 'symbol "Blobmoji"))
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
 (setq-default frame-title-format '("%b - " invocation-name))
@@ -39,7 +41,7 @@
 (tool-bar-mode   -1)
 (tooltip-mode    -1)
 (menu-bar-mode   -1)
-(global-auto-revert-mode 1) ; Update buffers if their associated file changes 
+(global-auto-revert-mode 1) ; Update buffers if their associated file changes
 (global-font-lock-mode 1)
 (column-number-mode 1)
 (show-paren-mode 1)
@@ -146,9 +148,10 @@ This command does not push text to `kill-ring'."
 ;; Paquetes
 (require 'package)
 (setq package-enable-at-startup nil)
-(setq package-archives '(("org"   . "https://orgmode.org/elpa/")
-                         ("gnu"   . "https://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+(setq package-archives '(("org"    . "https://orgmode.org/elpa/")
+                         ("gnu"    . "https://elpa.gnu.org/packages/")
+                         ("melpa"  . "https://melpa.org/packages/")
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -180,14 +183,34 @@ This command does not push text to `kill-ring'."
 
 ;; Go mode hook
 (defun my-go-mode-hook ()
+  "Custom hook for go-mode."
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook
+	  '(lambda ()
+	     (display-line-numbers-mode)
+	     (flycheck-mode)
+	     (flycheck-set-indication-mode 'left-margin)))
 (add-hook 'text-mode-hook 'display-line-numbers-mode)
 
+;; dumb-jump/xref hook
+(require 'dumb-jump)
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+
+;; Which key
+(require 'which-key)
+(setq which-key-idle-delay 0.1)
+(which-key-mode)
+
+;; LSP mode
+(setq lsp-keymap-prefix "M-p")
+(add-hook 'lsp-mode-hook
+	  '(lambda ()
+	     (let ((lsp-keymap-prefix "M-p"))
+	       (lsp-enable-which-key-integration))))
 ;; olivetti
 (require 'olivetti)
 (setq olivetti-body-width 80)
