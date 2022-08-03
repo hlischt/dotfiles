@@ -15,7 +15,7 @@ godocs() {
 	done | less
 }
 
-lct() {
+lt() {
 	if { printf '%s' "$*" | grep -q '[][\?^$|]' ; }
 	then
 		locate -i --regex "$@"
