@@ -8,9 +8,22 @@ note_taker() {
 			  -nf '#f0f0f0' -sf '#f0f0f0' -sb '#1e2d60'
 }
 
+yt_title() {
+	if { printf '%s\n' "$1" | \
+	     grep -q '^https://\(www\.\)\?youtu\.\?be[^ ]*$' ; }
+	then
+		# notify-send -u low -t 1000 "Fetching ${1}"
+		yt-dlp -j "$1" | jq -j '.webpage_url, " ", .title'
+	else
+		printf '%s' "$1"
+	fi
+}
+
+
 if [ -f "$notes_file" ]
 then
-	thought="$(note_taker)"
+	preprocessed_thought="$(note_taker)"
+	thought="$(yt_title "$preprocessed_thought")"
 	[ -n "${thought}" ] && \
 		printf '%s\t%s\t%s\n' "$(date +'%Y-%m-%d')" \
 		       "$(date +'%H:%M:%S')" \
