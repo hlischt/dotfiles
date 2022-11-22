@@ -102,10 +102,17 @@ With argument ARG, do this that many times."
 
 (defun my-backward-delete-word (arg)
   "Delete characters backward until encountering the beginning of a word.
-With argument, do this that many times.
+With argument ARG, do this that many times.
 This command does not push text to `kill-ring'."
   (interactive "p")
   (my-delete-word (- arg)))
+
+(defun my-kill-buffer-filename ()
+  "Kill filename associated with the buffer.
+It should copy the the buffer file's path to the clipboard."
+  (interactive)
+  (progn (kill-new buffer-file-name)
+	 (message (concat "Copied \"" buffer-file-name "\""))))
 
 (global-set-key (kbd "<C-delete>") 'my-delete-word)
 (global-set-key (kbd "<C-backspace>") 'my-backward-delete-word)
@@ -132,6 +139,7 @@ This command does not push text to `kill-ring'."
 (global-set-key (kbd "C-b C-b C-h") 'split-window-right)
 (global-set-key (kbd "C-x %") 'split-window-below)
 (global-set-key (kbd "C-x \"") 'split-window-right)
+(global-set-key (kbd "C-x M-w") 'my-kill-buffer-filename) ; Copy buffer filename
 (global-set-key (kbd "<menu>") 'counsel-M-x)
 (global-set-key (kbd "<f1>") 'find-file)
 (global-set-key (kbd "<f2>") 'save-buffer)
