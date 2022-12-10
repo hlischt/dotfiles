@@ -7,6 +7,7 @@ alias vi='emacsclient -c -a emacs'
 alias feh='feh -. -g 1600x900 -S mtime --start-at'
 alias cal='ncal -bM'
 alias rsync='rsync -avxlhhP --no-o --no-g --progress'
+alias denofmt='deno fmt --ext js --options-single-quote --options-line-width 100 --options-use-tabs'
 
 godocs() {
 	for i in "$@"
