@@ -184,6 +184,10 @@ It should copy the the buffer file's path to the clipboard."
           (defun shr-fill-lines (start end) nil)
           (defun shr-fill-line () nil)))
 
+;; Default modes
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
 ;; Python mode hook
 (add-hook 'python-mode-hook
           '(lambda ()
