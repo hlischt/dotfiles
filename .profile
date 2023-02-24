@@ -25,6 +25,12 @@ GOBIN="${GOPATH}/bin"
 export GOPATH
 export GOBIN
 
+# Set .NET's directory and opt-out from telemetry
+DOTNET_ROOT="${XDG_DATA_HOME}/dotnet"
+DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_ROOT
+export DOTNET_CLI_TELEMETRY_OPTOUT
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -34,14 +40,18 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ]
-then
+if [ -d "$HOME/.local/bin" ]; then
 	PATH="${HOME}/.local/bin:${PATH}"
 fi
-if [ -d "${GOBIN}" ]
-then
+
+if [ -d "${DOTNET_ROOT}" ]; then
+	PATH="${DOTNET_ROOT}:${DOTNET_ROOT}/tools:${PATH}"
+fi
+
+if [ -d "${GOBIN}" ]; then
 	PATH="${GOBIN}:${PATH}"
 fi
+
 if [ -d "$HOME/bin" ] ; then
 	PATH="$HOME/bin:${PATH}"
 fi
