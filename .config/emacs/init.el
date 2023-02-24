@@ -6,7 +6,8 @@
  '(custom-enabled-themes nil)
  '(ispell-dictionary nil)
  '(package-selected-packages
-   '(editorconfig web-mode js2-mode lsp-ui lsp-mode company flycheck which-key dumb-jump elpher nov go-mode markdown-mode org-static-blog draft-mode spray haskell-mode json-mode wanderlust elfeed imenu-list smex counsel ivy olivetti fountain-mode god-mode org-link-minor-mode use-package)))
+   '(paredit geiser-guile editorconfig web-mode js2-mode lsp-ui lsp-mode company flycheck which-key dumb-jump elpher nov go-mode markdown-mode org-static-blog draft-mode spray haskell-mode json-mode wanderlust elfeed imenu-list smex counsel ivy olivetti fountain-mode god-mode org-link-minor-mode use-package))
+ '(warning-suppress-types '((comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -47,6 +48,7 @@
 (global-font-lock-mode 1)
 (column-number-mode 1)
 (show-paren-mode 1)
+(global-eldoc-mode -1) ; Getting eldoc errors in non-emacs-lisp files
 (setq display-line-numbers-type 'relative)
 (delete-selection-mode 1)
 (setq-default buffer-file-coding-system 'utf-8-unix)
