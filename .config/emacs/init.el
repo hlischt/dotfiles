@@ -26,8 +26,9 @@
 ;; Interfaz
 (set-language-environment "UTF-8")
 (load-theme 'tango-dark)
-(when (member "Terminus" (font-family-list))
-  (set-frame-font "Terminus-11" t t))
+;; Why does Terminus render so small??
+(when (member "Terminus (TTF)" (font-family-list))
+  (set-frame-font "Terminus (TTF)-11" t t))
 (when (member "Konatu Tohaba" (font-family-list))
   (set-fontset-font "fontset-default" 'kana "Konatu Tohaba"))
 (when (member "WenQuanYi Bitmap Song" (font-family-list))
@@ -66,7 +67,7 @@
 (toggle-word-wrap 1)
 
 
-(setq default-frame-alist '((font . "Terminus-11")
+(setq default-frame-alist '((font . "Terminus (TTF)-11")
 			    (left-fringe . 0)
 			    (right-fringe . 0)))
 
