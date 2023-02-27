@@ -1,0 +1,22 @@
+# Move python_history to $XDG_STATE_HOME
+# Taken from https://unix.stackexchange.com/a/675631
+import readline
+import os
+import atexit
+
+state_file = os.path.join(os.getenv('XDG_STATE_HOME'), 'python_history')
+
+try:
+    readline.read_history_file(state_file)
+except OSError:
+    pass
+
+
+def write_history():
+    try:
+        readline.write_history_file(state_file)
+    except OSError:
+        pass
+
+
+atexit.register(write_history)

@@ -31,6 +31,10 @@ DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_ROOT
 export DOTNET_CLI_TELEMETRY_OPTOUT
 
+# Python startup file, moves .python_history to XDG_STATE_HOME
+PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
+export PYTHONSTARTUP
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
