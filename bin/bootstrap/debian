@@ -17,7 +17,7 @@ change_sources() {
 	epr "Changing release to 'testing'... "
 	sources_temp="$(mktemp /tmp/sources.XXXXXXX)"
 	awk '/^[^#]/ && $0 !~ /(updates|security)/ {
-		print $1 " " $2 " testing main contrib non-free"
+		print $1 " " $2 " testing main contrib non-free non-free-firmware"
 	}' /etc/apt/sources.list > "$sources_temp"
 	mv /etc/apt/sources.list /etc/apt/sources.list.freshinstall
 	mv "$sources_temp" /etc/apt/sources.list
