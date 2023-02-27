@@ -8,5 +8,6 @@ An all encopasing =.gitignore= is used for this repo, thus you need to use =git 
 #+BEGIN_SRC shell
 git clone --bare https://github.com/hlischt/dotfiles.git
 mv dotfiles.git .git
+git config --unset core.bare
 git checkout
 #+END_SRC
