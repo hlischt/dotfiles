@@ -37,10 +37,12 @@ export PYTHONSTARTUP
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+	BASHCONFIGDIR="${XDG_CONFIG_HOME}/bash"
+	export BASHCONFIGDIR
+	# include .bashrc if it exists
+	if [ -f "$BASHCONFIGDIR/bashrc" ]; then
+		. "$BASHCONFIGDIR/bashrc"
+	fi
 fi
 
 # set PATH so it includes user's private bin if it exists

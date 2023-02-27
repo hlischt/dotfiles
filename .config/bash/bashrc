@@ -9,6 +9,18 @@ case $- in
       *) return;;
 esac
 
+# Store bash configuration files on $XDG_CONFIG_HOME
+if [ -z "$BASHCONFIGDIR" ]
+then
+	if [ -n "$XDG_CONFIG_HOME" ]
+	then
+		BASHCONFIGDIR="$XDG_CONFIG_HOME/bash"
+	else
+		BASHCONFIGDIR="$HOME/.config/bash"
+	fi
+	export BASHCONFIGDIR
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -18,6 +30,7 @@ HISTIGNORE='cd *:lls:exit:sudo sysctl *:au'
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTFILE="$XDG_STATE_HOME/bash_history"
 HISTSIZE=5000
 HISTFILESIZE=10000
 HISTTIMEFORMAT='%FT%T	'
@@ -100,14 +113,14 @@ fi
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f "$BASHCONFIGDIR/aliases" ]; then
+    . "$BASHCONFIGDIR/aliases"
 fi
 
 os_name="$(. /etc/os-release && echo "$ID")"
 
-if [ -f ~/".bash_aliases_${os_name}" ] ; then
-    . ~/".bash_aliases_${os_name}"
+if [ -f "$BASHCONFIGDIR/aliases_${os_name}" ] ; then
+    . "$BASHCONFIGDIR/aliases_${os_name}"
 fi
 
 # enable programmable completion features (you don't need to enable
