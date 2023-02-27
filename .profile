@@ -18,6 +18,12 @@ export XDG_CONFIG_HOME
 export XDG_CACHE_HOME
 export XDG_DATA_HOME
 export XDG_STATE_HOME
+LESSHISTFILE="$XDG_STATE_HOME/lesshst"
+LESSHISTSIZE=1000
+export LESSHISTFILE
+export LESSHISTSIZE
+INPUTRC="$XDG_CONFIG_HOME/inputrc"
+export INPUTRC
 
 # Set Go's directory in ~/.local/share
 GOPATH="${XDG_DATA_HOME}/go"
