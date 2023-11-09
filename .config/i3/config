@@ -134,6 +134,7 @@ assign [class="Firefox"] number "1:  Firefox"
 assign [class="thunderbird"] number "4:  Thunderbird"
 assign [class="discord"] number "5:  Chat"
 assign [class="Element"] number "5:  Chat"
+assign [class="transmission-gtk"] workspace "Transmission"
 for_window [class="audacious"] move to  workspace "♪ Music"
 for_window [class="Spotify"] move to workspace "♪ Music"
 
