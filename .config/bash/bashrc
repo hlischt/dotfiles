@@ -24,7 +24,7 @@ fi
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
-HISTIGNORE='cd *:lls:exit:sudo sysctl *:au'
+HISTIGNORE='cd *:lls:exit:sudo sysctl *:au:au *:rm *'
 
 # append to the history file, don't overwrite it
 shopt -s histappend
