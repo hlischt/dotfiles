@@ -6,7 +6,7 @@
  '(custom-enabled-themes nil)
  '(ispell-dictionary nil)
  '(package-selected-packages
-   '(paredit geiser-guile editorconfig web-mode js2-mode lsp-ui lsp-mode company flycheck which-key dumb-jump elpher nov go-mode markdown-mode org-static-blog draft-mode spray haskell-mode json-mode wanderlust elfeed imenu-list smex counsel ivy olivetti fountain-mode god-mode org-link-minor-mode use-package))
+   '(age writegood-mode artbollocks-mode gnuplot todotxt ledger-mode sml-mode paredit geiser-guile editorconfig web-mode js2-mode lsp-ui lsp-mode company flycheck which-key dumb-jump elpher nov go-mode markdown-mode org-static-blog draft-mode spray haskell-mode json-mode wanderlust elfeed imenu-list smex counsel ivy olivetti fountain-mode god-mode org-link-minor-mode use-package))
  '(warning-suppress-types '((comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
