@@ -29,6 +29,10 @@ export SQLITE_HISTORY
 INPUTRC="$XDG_CONFIG_HOME/inputrc"
 export INPUTRC
 
+# Set Java's directory to Debian's default symlinked directory
+JAVA_HOME='/usr/lib/jvm/default-java'
+export JAVA_HOME
+
 # Set Go's directory in ~/.local/share
 GOPATH="${XDG_DATA_HOME}/go"
 GOBIN="${GOPATH}/bin"
