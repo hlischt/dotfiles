@@ -212,6 +212,51 @@ It should copy the the buffer file's path to the clipboard."
 	     (flycheck-set-indication-mode 'left-margin)))
 (add-hook 'text-mode-hook 'display-line-numbers-mode)
 
+;; Gnuplot mode hook
+(defun my-gnuplot-get-pdf-output ()
+  "Return nil or the name of the pdf output.
+
+Search for a line like =set output \"filename.pdf\"=
+and return filename.pdf, or nil if nothing was found.
+Not safe for names with quotes in them (why would you?)"
+    (let ((p (point)) (regex "^set output \"\\(.*\\.pdf\\)\"$"))
+	(goto-char (point-min))
+	(if (re-search-forward regex nil t)
+	    (progn (goto-char p)
+		(match-string-no-properties 1))
+	  (goto-char p) nil)))
+
+(defun my-gnuplot-run-buffer-file ()
+  "Run gnuplot with the file associated with the buffer as argument.
+That is, run =gnuplot my_file.gnu= if run on the buffer my_file.gnu.
+Runs synchronously, and returns the status code of the finished process."
+  (let ((default-directory (file-name-directory buffer-file-name)))
+    (call-process "gnuplot" nil "*mupdf-gnuplot output*" t
+		  (file-name-nondirectory buffer-file-name))))
+
+(defun my-gnuplot-refresh-or-open-mupdf (pdf-file)
+  "Either opens PDF-FILE or sends SIGHUP to mupdf-gnuplot, refreshing it."
+  (let ((mupdf-process (get-process "mupdf-gnuplot")))
+      (if mupdf-process
+	  (signal-process mupdf-process 'HUP)
+	(start-process "mupdf-gnuplot" "*mupdf-gnuplot output*"
+		       "mupdf" (concat (file-name-directory buffer-file-name)
+				       pdf-file)))))
+
+(defun my-gnuplot-pdf-save-hook ()
+  "Open or refresh the pdf-output every time the file is saved."
+  (if (= (my-gnuplot-run-buffer-file) 0)
+      (let ((pdf (my-gnuplot-get-pdf-output)))
+	(if pdf (my-gnuplot-refresh-or-open-mupdf pdf) nil))
+    (display-warning 'mupdf-gnuplot
+		     "Compilation failed. See *mupdf-gnuplot* for more info."
+		     :error)))
+
+(defun my-gnuplot-mode-hook ()
+  "Custom hook for gnuplot-mode."
+  (add-hook 'after-save-hook 'my-gnuplot-pdf-save-hook))
+(add-hook 'gnuplot-mode-hook 'my-gnuplot-mode-hook)
+
 ;; Editorconfig minor mode
 (require 'editorconfig)
 (editorconfig-mode 1)
