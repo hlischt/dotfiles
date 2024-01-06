@@ -77,7 +77,7 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # Automatic startx when logged to TTY 1
-if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]
 then
 	# exec on a login shell fails if startx doesn't exist, logging you out
 	command -v startx > /dev/null && exec startx
