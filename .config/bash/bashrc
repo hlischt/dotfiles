@@ -23,17 +23,17 @@ fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
-HISTIGNORE='cd *:lls:exit:sudo sysctl *:au:au *:rm *'
+export HISTCONTROL=ignoreboth
+export HISTIGNORE='cd *:lls:exit:sudo sysctl *:au:au *:rm *'
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTFILE="$XDG_STATE_HOME/bash_history"
-HISTSIZE=5000
-HISTFILESIZE=10000
-HISTTIMEFORMAT='%FT%T	'
+export HISTFILE="$XDG_STATE_HOME/bash_history"
+export HISTSIZE=
+export HISTFILESIZE=
+export HISTTIMEFORMAT='%FT%T	'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
