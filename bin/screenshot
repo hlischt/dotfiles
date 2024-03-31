@@ -27,9 +27,9 @@ ss() {
 			    "Screenshot saved" "$file_name"
 }
 
-if ! (command -v import || command -v xclip) > /dev/null
+if ! (command -v import && command -v xclip) > /dev/null
 then
-	>&2 echo "Error: This script requires imagemagik and xclip.\n"
+	>&2 printf "Error: This script requires imagemagik and xclip.\n"
 	exit 1
 fi
 
