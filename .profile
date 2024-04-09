@@ -49,6 +49,12 @@ export DOTNET_CLI_TELEMETRY_OPTOUT
 PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 export PYTHONSTARTUP
 
+# Rustup and Cargo directories in ~/.local/share
+CARGO_HOME="${XDG_DATA_HOME}/cargo"
+RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
+export CARGO_HOME
+export RUSTUP_HOME
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
 	BASHCONFIGDIR="${XDG_CONFIG_HOME}/bash"
