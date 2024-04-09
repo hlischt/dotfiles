@@ -82,6 +82,14 @@
 (setq make-backup-files nil) ; Dejar de crear respaldos
 ;; (setq browse-url-browser-function 'browse-url-firefox)
 
+;; Align with spaces only
+;; From http://stackoverflow.com/a/8129994/324105
+(defadvice align-regexp (around align-regexp-with-spaces)
+  "Never use tabs for alignment."
+  (let ((indent-tabs-mode nil))
+    ad-do-it))
+(ad-activate 'align-regexp)
+
 ;; Teclas
 (windmove-default-keybindings 'meta)
 (define-key key-translation-map (kbd "<apps>") (kbd "<menu>"))
