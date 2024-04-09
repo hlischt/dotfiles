@@ -298,6 +298,8 @@ Runs synchronously, and returns the status code of the finished process."
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
 ;; ;; smex
 ;; (require 'smex)
 ;; ;; (global-set-key (kbd "M-x") 'counsel-M-x)
