@@ -265,6 +265,14 @@ Runs synchronously, and returns the status code of the finished process."
   (add-hook 'after-save-hook 'my-gnuplot-pdf-save-hook))
 (add-hook 'gnuplot-mode-hook 'my-gnuplot-mode-hook)
 
+;; age.el
+(require 'age)
+(let* ((recipient "~/Sensitive/agekey.pub")
+       (identity  "~/Sensitive/agekey"))
+  (if (file-exists-p recipient) (setq age-default-recipient recipient))
+  (if (file-exists-p identity) (setq age-default-identity identity))
+  (age-file-enable))
+
 ;; Editorconfig minor mode
 (require 'editorconfig)
 (editorconfig-mode 1)
