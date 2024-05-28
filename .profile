@@ -55,6 +55,13 @@ RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME
 export RUSTUP_HOME
 
+# pkg-config path to .pc files, for linking C programs
+if [ "$(uname -s)" = "Linux" ] ; then
+	PKG_CONFIG_PATH="/usr/lib/$(uname -m)-linux-gnu/pkgconfig:${PKG_CONFIG_PATH}"
+fi
+PKG_CONFIG_PATH="${HOME}/.local/lib/pkgconfig:${PKG_CONFIG_PATH}"
+export PKG_CONFIG_PATH
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
 	BASHCONFIGDIR="${XDG_CONFIG_HOME}/bash"
