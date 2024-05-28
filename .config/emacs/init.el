@@ -330,4 +330,5 @@ Runs synchronously, and returns the status code of the finished process."
 (setq org-startup-truncated nil)
 (setq org-startup-indented t)
 (setq org-adapt-indentation nil)
+(setq org-clock-sound "~/Media/bell.wav")
 (add-hook 'org-mode-hook #'toggle-word-wrap)
