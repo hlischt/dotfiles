@@ -48,6 +48,8 @@ URxvt.secondaryWheel: 1
 
 URxvt.letterSpace: -1
 
+*.cursorBlink: true
+
 ! Konatu is a bitmap font that looks good with Terminus.
 ! However, it lacks a lot of common kanji,
 ! but I cannot get it working with WenQuanYi
