@@ -271,7 +271,10 @@ Runs synchronously, and returns the status code of the finished process."
        (identity  "~/Sensitive/agekey"))
   (if (file-exists-p recipient) (setq age-default-recipient recipient))
   (if (file-exists-p identity) (setq age-default-identity identity))
-  (age-file-enable))
+  ; Enable mode only if both age-default-* variables are bound
+  (if (and (boundp 'age-default-recipient)
+	   (boundp 'age-default-identity))
+      (age-file-enable)))
 
 ;; Editorconfig minor mode
 (require 'editorconfig)
