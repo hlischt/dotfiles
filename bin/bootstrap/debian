@@ -22,6 +22,17 @@ change_sources() {
 	mv /etc/apt/sources.list /etc/apt/sources.list.freshinstall
 	mv "$sources_temp" /etc/apt/sources.list
 	chmod +r /etc/apt/sources.list
+	cat >> /etc/apt/listchanges.conf << EOF
+[apt]
+frontend=text
+which=news
+email_address=root
+email_format=text
+confirm=false
+headers=false
+reverse=false
+save_seen=/var/lib/apt/listchanges.db
+EOF
 	epr 'Done\n'
 }
 
