@@ -206,6 +206,7 @@ for_window [class="mpv"] floating enable
 for_window [class="KeePassXC"] floating enable
 for_window [class="(?i)feh|sxiv|qimgv"] floating enable
 for_window [instance="urxvt_notif"] floating enable
+for_window [title=".*on QEMU/KVM$"] floating enable
 
 for_window [instance="thunar_clip_launcher"] floating enable ; [instance="thunar_clip_launcher"] resize set 1280 800 ; [instance="thunar_clip_launcher"] move position mouse 
 bindsym $mod+c exec --no-startup-id thunar --name=thunar_clip_launcher
