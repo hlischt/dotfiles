@@ -1,1 +1,1 @@
-/home/hlischt/.config/bash/bashrc
+.config/bash/bashrc
