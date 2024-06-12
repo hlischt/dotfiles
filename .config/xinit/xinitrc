@@ -7,7 +7,8 @@
 # . /etc/X11/Xsession
 
 [ -f /etc/xprofile ] && . /etc/xprofile
-[ -f ~/.xprofile ] && . ~/.xprofile
+[ -f "${XDG_CONFIG_HOME}/xinit/xprofile" ] &&
+	. "${XDG_CONFIG_HOME}/xinit/xprofile"
 
 my_wm=spectrwm
 

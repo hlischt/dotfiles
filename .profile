@@ -10,6 +10,7 @@
 #umask 022
 
 # set the XDG Base Directory Specification variables
+# and create the directories if they don't exist
 XDG_CONFIG_HOME="${HOME}/.config"
 XDG_CACHE_HOME="${HOME}/.cache"
 XDG_DATA_HOME="${HOME}/.local/share"
@@ -18,6 +19,11 @@ export XDG_CONFIG_HOME
 export XDG_CACHE_HOME
 export XDG_DATA_HOME
 export XDG_STATE_HOME
+mkdir -p "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME"
+
+# Set xinitrc inside $XDG_CONFIG_HOME
+XINITRC="${XDG_CONFIG_HOME}/xinit/xinitrc"
+export XINITRC
 
 # History and misc. files
 LESSHISTFILE="$XDG_STATE_HOME/lesshst"
