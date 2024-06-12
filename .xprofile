@@ -29,12 +29,11 @@ export XMODIFIERS='@im=fcitx'
 xbindkeys -f ~/.config/xbindkeys/xbindkeysrc
 setxkbmap -layout 'us(intl)' -option ctrl:nocaps
 dunst &
-# wallpaper ~/Media/Pictures/wallpapers/1080-plus &
 python3 ~/bin/wallpaper.py -d ~/Media/Pictures/wallpapers/1080-plus \
 	"$XDG_STATE_HOME/wallpaper.json" &
 xfce4-clipman &
 transmission-gtk &
 xrdb -merge ~/.Xresources
 fcitx -d &
-emacs --daemon
-picom -b --config ~/.config/picom.conf
+emacs --daemon &
+picom -b --config ~/.config/picom.conf &

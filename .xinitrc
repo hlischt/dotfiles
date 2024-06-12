@@ -9,7 +9,7 @@
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-my_wm=i3
+my_wm=spectrwm
 
 if command -v "$my_wm" > /dev/null
 then
