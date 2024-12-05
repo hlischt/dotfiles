@@ -26,6 +26,6 @@ mem_usage() {
 }
 
 while :; do
-	printf -- '%s  %s\n' "$(pctl)" "$(mem_usage)"
+	printf -- '%.60s  %s\n' "$(pctl)" "$(mem_usage)"
 	sleep 5s
 done
