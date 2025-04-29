@@ -312,6 +312,7 @@ Runs synchronously, and returns the status code of the finished process."
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "<pause>") 'counsel-M-x)
 
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
