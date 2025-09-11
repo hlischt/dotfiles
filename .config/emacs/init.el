@@ -6,7 +6,17 @@
  '(custom-enabled-themes nil)
  '(ispell-dictionary nil)
  '(package-selected-packages
-   '(expand-region dired-preview all-the-icons-ivy-rich all-the-icons-dired all-the-icons eat lua-mode typescript-mode company-go dash git-commit magit magit-section slime with-editor graphviz-dot-mode age writegood-mode artbollocks-mode gnuplot todotxt ledger-mode sml-mode paredit geiser-guile editorconfig web-mode js2-mode lsp-ui lsp-mode company flycheck which-key dumb-jump elpher nov go-mode markdown-mode org-static-blog draft-mode spray haskell-mode json-mode wanderlust elfeed imenu-list smex counsel ivy olivetti fountain-mode god-mode org-link-minor-mode use-package))
+   '(age all-the-icons all-the-icons-dired all-the-icons-ivy-rich
+	 artbollocks-mode company company-go counsel dash
+	 dired-preview draft-mode dumb-jump eat editorconfig elfeed
+	 elpher expand-region flycheck fountain-mode geiser-guile
+	 git-commit gnuplot go-mode god-mode graphviz-dot-mode
+	 haskell-mode imenu-list ivy js2-mode json-mode ledger-mode
+	 lsp-mode lsp-ui lua-mode magit magit-section markdown-mode
+	 nov olivetti org-link-minor-mode org-static-blog paredit
+	 slime smex sml-mode spray todotxt typescript-mode
+	 typst-ts-mode use-package wanderlust web-mode which-key
+	 with-editor writegood-mode))
  '(warning-suppress-types '((comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
