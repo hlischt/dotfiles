@@ -81,6 +81,9 @@
   Mod4 + backslash
 
 "dmenu_notes"
+  Mod4 + t
+
+"qr_scan.sh"
   Mod4 + q
 # "everything.sh"
 #   Mod4 + e
