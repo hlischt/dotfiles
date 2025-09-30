@@ -7,16 +7,16 @@
  '(ispell-dictionary nil)
  '(package-selected-packages
    '(age all-the-icons all-the-icons-dired all-the-icons-ivy-rich
-	 artbollocks-mode company company-go counsel dash
-	 dired-preview draft-mode dumb-jump eat editorconfig elfeed
-	 elpher expand-region flycheck fountain-mode geiser-guile
-	 git-commit gnuplot go-mode god-mode graphviz-dot-mode
-	 haskell-mode imenu-list ivy js2-mode json-mode ledger-mode
-	 lsp-mode lsp-ui lua-mode magit magit-section markdown-mode
-	 nov olivetti org-link-minor-mode org-static-blog paredit
-	 slime smex sml-mode spray todotxt typescript-mode
-	 typst-ts-mode use-package wanderlust web-mode which-key
-	 with-editor writegood-mode))
+	 artbollocks-mode auctex auctex-latexmk company company-go
+	 counsel dash dired-preview draft-mode dumb-jump eat
+	 editorconfig elfeed elpher expand-region flycheck
+	 fountain-mode geiser-guile git-commit gnuplot go-mode
+	 god-mode graphviz-dot-mode haskell-mode imenu-list ivy
+	 js2-mode json-mode ledger-mode lsp-mode lsp-ui lua-mode magit
+	 magit-section markdown-mode nov olivetti org-link-minor-mode
+	 org-static-blog paredit pdf-tools slime smex sml-mode spray
+	 todotxt typescript-mode typst-ts-mode use-package wanderlust
+	 web-mode which-key with-editor writegood-mode))
  '(warning-suppress-types '((comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -38,8 +38,8 @@
 (set-language-environment "UTF-8")
 (load-theme 'tango-dark)
 ;; Why does Terminus render so small??
-(when (member "Terminus (TTF)" (font-family-list))
-  (set-frame-font "Terminus (TTF)-11" t t))
+(when (member "Terminus" (font-family-list))
+  (set-frame-font "Terminus-11" t t))
 (when (member "Konatu Tohaba" (font-family-list))
   (set-fontset-font "fontset-default" 'kana "Konatu Tohaba"))
 (when (member "WenQuanYi Bitmap Song" (font-family-list))
@@ -79,7 +79,7 @@
 (toggle-word-wrap 1)
 
 
-(setq default-frame-alist '((font . "Terminus (TTF)-11")
+(setq default-frame-alist '((font . "Terminus-11")
 			    (left-fringe . 0)
 			    (right-fringe . 0)))
 
@@ -308,7 +308,9 @@ Runs synchronously, and returns the status code of the finished process."
 (add-hook 'lsp-mode-hook
 	  '(lambda ()
 	     (let ((lsp-keymap-prefix "M-p"))
-	       (lsp-enable-which-key-integration))))
+	       (lsp-enable-which-key-integration)
+	       (setq lsp-clients-clangd-args (cons "--fallback-style=linux" lsp-clients-clangd-args))
+	       (setq lsp-enable-on-type-formatting nil))))
 ;; olivetti
 (require 'olivetti)
 (setq olivetti-body-width 80)
